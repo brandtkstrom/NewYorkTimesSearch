@@ -1,17 +1,46 @@
-$("#search").on("click", function() {
+var apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+var apiKey = "ALVr4fwE8asfGEipSTIuy4pJa88hg15Y";
 
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=yourkey+q6j9wM5GmujWbu8FZWzFc6qANAByuytF";
-        
+function getArticles(searchTerm) {
+  if (!searchTerm || searchTerm.trim() === "") {
+    // No search term provided -> return early
+    return;
+  }
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
+  var queryURL = `${apiUrl}?q=${searchTerm}&api-key=${apiKey}`;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(data) {
+    console.log(data);
+    var articles = data.response.docs;
+    printArticles(articles);
+  });
+}
 
-      .then(function(response) {
+function printArticles(articles) {
+  $("#article-content").empty();
+  articles.forEach(article => {
+    var $headline = $("<p>").text(article.headline.main);
+    var $byline = $("<p>").text(`By: ${article.byline.original}`);
+    var $image = $("<img>").attr(
+      "src",
+      `http://nyt.com/${article.multimedia[0].url}`
+    );
 
-        var text = response.data.text_original_url;
-        console.log(response);
+    var $article = $("<div>").append($headline, $byline, $image);
 
-    });
-    });
+    $("#article-content").append($article);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("#search").on("click", function() {
+    var searchTerm = $("#term").val();
+    getArticles(searchTerm);
+  });
+
+  $("#clear").on("click", function() {
+    $("#article-content").empty();
+  });
+});

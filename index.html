@@ -1,88 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <!-- Font Awesome Code -->
-        <script src="https://kit.fontawesome.com/2a5678a8d1.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <title>New York Times Search</title>
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        />
+    <!-- Font Awesome Code -->
+    <script src="https://kit.fontawesome.com/2a5678a8d1.js"></script>
 
-        <!-- Font awesome -->
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>New York Times Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
-    </head>
-    <body>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-            <!-- Jumbotron -->
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4"><i class="far fa-newspaper"></i>New York Times Search</h1>
-            </div>
-        </div>
+  </head>
 
-            <!-- Bootstrap Form -->
+  <body>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4"><i class="far fa-newspaper"></i>New York Times Search</h1>
+      </div>
+    </div>
+
+    <!-- Bootstrap Form -->
     <div class="container">
-    <div class="card">
+      <div class="card">
         <div class="card-header">
-            <i class="fas fa-newspaper"></i> Search Parameters
+          <i class="fas fa-newspaper"></i> Search Parameters
         </div>
         <div class="card-body">
-    </div>
-            
-    <form>
-        <div class="search-row">
+        </div>
+
+        <form>
+          <div class="search-row">
             <div class="col-md-4 mb-3">
-                <label for="validationDefault01">Search Term:</label>
-                <input type="text" class="form-control" id="validationDefault01" >
+              <label for="term">Search Term:</label>
+              <input type="text" class="form-control" id="term">
             </div>
-        <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3">
               <select class="custom-select" required><label>Number of Records to Retrieve:</label>
               </select>
               <div class="invalid-feedback">Example invalid custom select feedback</div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-          <label for="validationDefaultUsername">Start Year (Optional):</label>
-          <div class="input-group">
-            <div class="input-group-prepend">               
             </div>
-            <input type="text" class="form-control" id="validationDefaultUsername">
+
+            <div class="col-md-4 mb-3">
+              <label for="validationDefaultUsername">Start Year (Optional):</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                </div>
+                <input type="text" class="form-control" id="validationDefaultUsername">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationDefault03">End Year (Optional):</label>
+              <input type="text" class="form-control" id="validationDefault03">
+            </div>
+
+            <!-- Font Awesome Search/Clear -->
+            <div class="container">
+              <i class="fas fa-search"></i><input type="button" value="Search" id="search">
+              <i class="fas fa-trash-alt"></i><input type="button" value="Clear Results" id="clear">
+            </div>
+
+          </div>
+      </div>
+      <br>
+      <!-- Top Articles -->
+      <div class="container">
+        <div class="card">
+          <h5 class="card-header"><i class="far fa-newspaper"></i>Top Articles</h5>
+          <div id="article-content" class="card-body">
           </div>
         </div>
-        </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationDefault03">End Year (Optional):</label>
-                <input type="text" class="form-control" id="validationDefault03">
-              </div>
-            
-              <!-- Font Awesome Search/Clear -->
-              <div class="container">
-                <i class="fas fa-search"> Search</i>
-                <i class="fas fa-trash-alt"> Clear Results</i>
-              </div>
-              
-    </div>
-</div>
-<br>
-              <!-- Top Articles -->
-          <div class="container">
-              <div class="card">
-                <h5 class="card-header"><i class="far fa-newspaper"></i>Top Articles</h5>
-                <div class="card-body">
-              </div>
-          </div>
-          </form>
-    </body>
+        </form>
+
+        <!-- Load nytimes script -->
+        <script src="nytime.js"></script>
+  </body>
+
 </html>
