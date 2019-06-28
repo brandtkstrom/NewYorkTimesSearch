@@ -39,7 +39,8 @@
         </div>
 
         <form>
-          <div class="search-row">
+          <!-- Search Parameters -->
+          <section id="search-parms">
             <div class="col-md-4 mb-3">
               <label for="term">Search Term:</label>
               <input type="text" class="form-control" id="term">
@@ -58,29 +59,34 @@
                 <input type="text" class="form-control" id="validationDefaultUsername">
               </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationDefault03">End Year (Optional):</label>
-              <input type="text" class="form-control" id="validationDefault03">
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationDefault03">End Year (Optional):</label>
+                <input type="text" class="form-control" id="validationDefault03">
+              </div>
+
+              <!-- Font Awesome Search/Clear -->
+              <div class="container">
+                <i class="fas fa-search"></i><input type="button" value="Search" id="search" class="btn btn-link">
+                <i class="fas fa-trash-alt"></i><input type="button" value="Clear Results" id="clear"
+                  class="btn btn-link">
+              </div>
+
+            </div>
+          </section>
+
+          <br>
+          <!-- Top Articles -->
+          <section id="articles">
+
+            <div class="card">
+              <h5 class="card-header"><i class="far fa-newspaper"></i>Top Articles</h5>
+              <div id="article-content" class="card-body">
+              </div>
             </div>
 
-            <!-- Font Awesome Search/Clear -->
-            <div class="container">
-              <i class="fas fa-search"></i><input type="button" value="Search" id="search">
-              <i class="fas fa-trash-alt"></i><input type="button" value="Clear Results" id="clear">
-            </div>
+          </section>
 
-          </div>
-      </div>
-      <br>
-      <!-- Top Articles -->
-      <div class="container">
-        <div class="card">
-          <h5 class="card-header"><i class="far fa-newspaper"></i>Top Articles</h5>
-          <div id="article-content" class="card-body">
-          </div>
-        </div>
         </form>
 
         <!-- Load nytimes script -->
