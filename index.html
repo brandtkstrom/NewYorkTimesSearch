@@ -27,70 +27,82 @@
       <!-- Jumbotron -->
       <div class="jumbotron text-center">
         <div class="container">
-          <h1 class="display-4"><i class="far fa-newspaper"></i>New York Times Search</h1>
+          <h1 class="display-4"><i class="far fa-newspaper"></i> New York Times Search</h1>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header">
-          <i class="fas fa-newspaper"></i> Search Parameters
-        </div>
-        <div class="card-body">
-        </div>
+      <!-- Search Parameters Section-->
+      <section id="search-parms">
+        <div class="row">
+          <div class="col-12">
 
-        <form>
-          <!-- Search Parameters -->
-          <section id="search-parms">
-            <div class="col-md-4 mb-3">
-              <label for="term">Search Term:</label>
-              <input type="text" class="form-control" id="term">
-            </div>
-            <div class="col-md-4 mb-3">
-              <select class="custom-select" required><label>Number of Records to Retrieve:</label>
-              </select>
-              <div class="invalid-feedback">Example invalid custom select feedback</div>
-            </div>
+            <div class="card">
 
-            <div class="col-md-4 mb-3">
-              <label for="validationDefaultUsername">Start Year (Optional):</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                </div>
-                <input type="text" class="form-control" id="validationDefaultUsername">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationDefault03">End Year (Optional):</label>
-                <input type="text" class="form-control" id="validationDefault03">
+              <div class="card-header">
+                <i class="fas fa-newspaper"></i>
+                <strong> Search Parameters</strong>
               </div>
 
-              <!-- Font Awesome Search/Clear -->
-              <div class="container">
+              <div class="card-body">
+
+                <label for="term">Search Term:</label>
+                <input type="text" class="form-control mb-3" id="term">
+
+                <label for="record-ct">Number of Records to Retrieve:</label>
+                <select class="custom-select mb-3" id="record-ct">
+                  <option value="1">1</option>
+                  <option value="5" selected>5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                </select>
+
+                <label for="start-year">Start Year (Optional):</label>
+                <input type="text" class="form-control mb-3" id="start-year">
+
+                <label for="end-year">End Year (Optional):</label>
+                <input type="text" class="form-control mb-3" id="end-year">
+
+                <!-- Font Awesome Search/Clear -->
                 <i class="fas fa-search"></i><input type="button" value="Search" id="search" class="btn btn-link">
                 <i class="fas fa-trash-alt"></i><input type="button" value="Clear Results" id="clear"
                   class="btn btn-link">
               </div>
 
             </div>
-          </section>
 
-          <br>
-          <!-- Top Articles -->
-          <section id="articles">
+          </div>
+        </div>
+      </section>
+
+      <br>
+
+
+      <!-- Top Articles Section -->
+      <section id="articles">
+        <div class="row">
+          <div class="col-12">
 
             <div class="card">
-              <h5 class="card-header"><i class="far fa-newspaper"></i>Top Articles</h5>
+
+              <div class="card-header">
+                <i class="far fa-newspaper"></i>
+                <strong>Top Articles</strong>
+              </div>
+
               <div id="article-content" class="card-body">
+
+                <!-- Articles From API will go here -->
+
               </div>
             </div>
 
-          </section>
+          </div>
+        </div>
+      </section>
 
-        </form>
+      <!-- Load nytimes script -->
+      <script src="nytime.js"></script>
 
-        <!-- Load nytimes script -->
-        <script src="nytime.js"></script>
   </body>
 
 </html>
