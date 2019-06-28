@@ -59,8 +59,8 @@ function printArticles(articles) {
 // Contructs and returns a Bootstrap card with content from the provided article object.
 function getArticleCard(article) {
     var $card = $("<div>")
-        .addClass("card p-2 mb-4")
-        .css({ "max-width": "45%", "min-width": "250px" });
+        .addClass("card article-card p-2 mb-4")
+        .css({ "min-width": "250px" });
     var $cardBody = $("<div>").addClass("card-body");
     var $title = $("<h4>")
         .addClass("card-title my-3")
