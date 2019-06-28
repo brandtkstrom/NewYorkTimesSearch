@@ -65,9 +65,12 @@ function getArticleCard(article) {
     var $title = $("<h4>")
         .addClass("card-title my-3")
         .text(article.headline.main);
+    var author = article.byline.original
+        ? article.byline.original
+        : "Unlisted Author";
     var $byline = $("<h5>")
         .addClass("card-subtitle my-3 text-muted")
-        .text(`By: ${article.byline.original}`);
+        .text(`${author}`);
     var $paragraph = $("<p>")
         .addClass("card-text")
         .text(article.lead_paragraph);
@@ -75,8 +78,13 @@ function getArticleCard(article) {
         .attr({ href: article.web_url, target: "_blank" })
         .addClass("card-link")
         .text("Read More");
+
+    var imgAddress = "images/nyt_default.png";
+    if (article.multimedia.length > 0) {
+        imgAddress = `https://nyt.com/${article.multimedia[0].url}`;
+    }
     var $image = $("<img>")
-        .attr("src", `https://nyt.com/${article.multimedia[0].url}`)
+        .attr("src", `${imgAddress}`)
         .css({ "object-fit": "cover", width: "100%", height: "30vh" });
 
     $cardBody.append($image, $title, $byline, $paragraph, $link);
