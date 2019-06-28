@@ -44,10 +44,9 @@ function printArticles(articles) {
     articles.forEach(article => {
         var $headline = $("<p>").text(article.headline.main);
         var $byline = $("<p>").text(`By: ${article.byline.original}`);
-        var $image = $("<img>").attr(
-            "src",
-            `http://nyt.com/${article.multimedia[0].url}`
-        );
+        var $image = $("<img>")
+            .attr("src", `http://nyt.com/${article.multimedia[0].url}`)
+            .css("max-width", "100%");
 
         var $article = $("<div>").append($headline, $byline, $image);
 
