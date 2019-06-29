@@ -111,4 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#clear").on("click", function() {
         $("#article-content").empty();
     });
+
+    $("#search-form").submit(evt => {
+        evt.preventDefault();
+    });
 });
